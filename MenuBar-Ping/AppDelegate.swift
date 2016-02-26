@@ -7,13 +7,14 @@
 //
 
 import Cocoa
+import Foundation
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
 
     @IBOutlet weak var statusMenu: NSMenu!
     @IBOutlet weak var window: NSWindow!
- let statusItem = NSStatusBar.systemStatusBar().statusItemWithLength(-1)
+    let statusItem = NSStatusBar.systemStatusBar().statusItemWithLength(-1)
     var startTime: NSTimeInterval?;
     var currentTime: NSTimeInterval?;
     
@@ -38,10 +39,26 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     
     func pingResult(success: Int) {
         
+        var attributedString = NSMutableAttributedString(string: statusItem.title! as String)
         
+        var firstAttributes = [NSForegroundColorAttributeName: NSColor.whiteColor()];
       
+        let pingTime = Int((NSDate.timeIntervalSinceReferenceDate()-startTime!)*1000);
+        statusItem.title = String(pingTime);
+        var font = NSFont(name: "Arial", size: 14.0)
+        if (pingTime>400)
+        {
+            
+            firstAttributes = [NSForegroundColorAttributeName: NSColor.redColor()];
+            
+           
+        }
+        //firstAttributes.updateValue(NSColor.redColor(), forKey: NSFontAttributeName);
         
-        statusItem.title = String(Int((NSDate.timeIntervalSinceReferenceDate()-startTime!)*1000));
+       
+        let titleString = NSAttributedString(string: statusItem.title!, attributes: firstAttributes);
+
+        statusItem.attributedTitle = titleString;
         
         let delayTime = dispatch_time(DISPATCH_TIME_NOW, Int64(1 * Double(NSEC_PER_SEC)))
         dispatch_after(delayTime, dispatch_get_main_queue()) {
@@ -55,6 +72,9 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         // Insert code here to tear down your application
     }
 
+    @IBAction func quitButtonTapped(sender: AnyObject) {
+         NSApplication.sharedApplication().terminate(self);
+    }
 
 }
 
