@@ -10,6 +10,8 @@
 		6C0C6B451C7FCFBC00A1238D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C0C6B441C7FCFBC00A1238D /* AppDelegate.swift */; };
 		6C0C6B471C7FCFBC00A1238D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6C0C6B461C7FCFBC00A1238D /* Assets.xcassets */; };
 		6C0C6B4A1C7FCFBC00A1238D /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6C0C6B481C7FCFBC00A1238D /* MainMenu.xib */; };
+		6C0C6B571C7FD00A00A1238D /* SimplePing.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C0C6B541C7FD00A00A1238D /* SimplePing.m */; };
+		6C0C6B581C7FD00A00A1238D /* SimplePingHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 6C0C6B561C7FD00A00A1238D /* SimplePingHelper.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -18,6 +20,11 @@
 		6C0C6B461C7FCFBC00A1238D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6C0C6B491C7FCFBC00A1238D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/MainMenu.xib; sourceTree = "<group>"; };
 		6C0C6B4B1C7FCFBC00A1238D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6C0C6B531C7FD00A00A1238D /* SimplePing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimplePing.h; sourceTree = "<group>"; };
+		6C0C6B541C7FD00A00A1238D /* SimplePing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimplePing.m; sourceTree = "<group>"; };
+		6C0C6B551C7FD00A00A1238D /* SimplePingHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimplePingHelper.h; sourceTree = "<group>"; };
+		6C0C6B561C7FD00A00A1238D /* SimplePingHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimplePingHelper.m; sourceTree = "<group>"; };
+		6C0C6B591C7FD0B300A1238D /* MenuBar-Ping-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "MenuBar-Ping-Bridging-Header.h"; path = "MenuBar-Ping/MenuBar-Ping-Bridging-Header.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -34,6 +41,7 @@
 		6C0C6B381C7FCFBC00A1238D = {
 			isa = PBXGroup;
 			children = (
+				6C0C6B591C7FD0B300A1238D /* MenuBar-Ping-Bridging-Header.h */,
 				6C0C6B431C7FCFBC00A1238D /* MenuBar-Ping */,
 				6C0C6B421C7FCFBC00A1238D /* Products */,
 			);
@@ -50,12 +58,32 @@
 		6C0C6B431C7FCFBC00A1238D /* MenuBar-Ping */ = {
 			isa = PBXGroup;
 			children = (
+				6C0C6B511C7FD00200A1238D /* Libraries */,
 				6C0C6B441C7FCFBC00A1238D /* AppDelegate.swift */,
 				6C0C6B461C7FCFBC00A1238D /* Assets.xcassets */,
 				6C0C6B481C7FCFBC00A1238D /* MainMenu.xib */,
 				6C0C6B4B1C7FCFBC00A1238D /* Info.plist */,
 			);
 			path = "MenuBar-Ping";
+			sourceTree = "<group>";
+		};
+		6C0C6B511C7FD00200A1238D /* Libraries */ = {
+			isa = PBXGroup;
+			children = (
+				6C0C6B521C7FD00A00A1238D /* SimplePing */,
+			);
+			name = Libraries;
+			sourceTree = "<group>";
+		};
+		6C0C6B521C7FD00A00A1238D /* SimplePing */ = {
+			isa = PBXGroup;
+			children = (
+				6C0C6B531C7FD00A00A1238D /* SimplePing.h */,
+				6C0C6B541C7FD00A00A1238D /* SimplePing.m */,
+				6C0C6B551C7FD00A00A1238D /* SimplePingHelper.h */,
+				6C0C6B561C7FD00A00A1238D /* SimplePingHelper.m */,
+			);
+			path = SimplePing;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -129,6 +157,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				6C0C6B451C7FCFBC00A1238D /* AppDelegate.swift in Sources */,
+				6C0C6B571C7FD00A00A1238D /* SimplePing.m in Sources */,
+				6C0C6B581C7FD00A00A1238D /* SimplePingHelper.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -235,6 +265,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.bitmonkeygames.MenuBar-Ping";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "MenuBar-Ping/MenuBar-Ping-Bridging-Header.h";
 			};
 			name = Debug;
 		};
@@ -247,6 +278,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.bitmonkeygames.MenuBar-Ping";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "MenuBar-Ping/MenuBar-Ping-Bridging-Header.h";
 			};
 			name = Release;
 		};
@@ -269,6 +301,7 @@
 				6C0C6B501C7FCFBC00A1238D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
